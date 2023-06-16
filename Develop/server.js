@@ -2,14 +2,16 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const notes = require('./db/db.json');
 const uuid = require('./helpers/uuid');
 const bodyParser = require('body-parser');
 
-
+app.use(express.json());
+app.use(express.urlencoded({extended : true }));
 app.use(express.static('public'));
+app.listen(PORT, () => console.log(`Listening on PORT: PORT`));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html')) //this takes you to the index html, takes you to the homepage
@@ -24,7 +26,8 @@ app.get('/notes', (req, res) => {
 });
 
 app.post('/api/notes', bodyParser.json(), (req, res) => {
-
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
   console.info(`${req.method} request recieved for notes`);
 
   const { title, text } = req.body;
@@ -59,5 +62,20 @@ app.post('/api/notes', bodyParser.json(), (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`);
+});
+
+//how can i rework this code to work for my assignment, is this even needed?
+const mainEL = $("main");
+fetch ('/api/users', {
+  method: 'GET'
+})
+.then( res => res.json())
+.then(userData => {
+  console.log(userData)
+  for (let i = 0; i < userdata.length; i++){
+    let h1El = $("<h1>");
+    h1El.text(`${userData[i].first_name} ${userData[i].last_name}`)
+    mainEL.append(h1El)
+  }
 });
     
