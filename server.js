@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 app.use(express.json());
 app.use(express.urlencoded({extended : true }));
 app.use(express.static('public'));
-app.listen(PORT, () => console.log(`Listening on PORT: PORT`));
+// app.listen(PORT, () => console.log(`Listening on PORT: PORT`));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html')) //this takes you to the index html, takes you to the homepage
@@ -54,10 +54,7 @@ app.delete('/api/notes/:id', (req, res) => {
 
 
 
-app.listen(PORT, () => {
-    console.log(`Example app listening at http://localhost:${PORT}`);
-});
-
-
-
+app.listen(PORT, () => 
+    console.log(`Example app listening at http://localhost:${PORT}`)
+);
     
