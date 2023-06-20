@@ -1,16 +1,15 @@
 
 const express = require('express');
-const path = require('path');
-const fs = require('fs');
-const PORT = process.env.PORT || 3001;
 const app = express();
+const fs = require('fs');
+const path = require('path');
+const PORT = process.env.PORT || 3001;
 const uuid = require('./helpers/uuid');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 
 app.use(express.json());
 app.use(express.urlencoded({extended : true }));
 app.use(express.static('public'));
-// app.listen(PORT, () => console.log(`Listening on PORT: PORT`));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html')) //this takes you to the index html, takes you to the homepage
