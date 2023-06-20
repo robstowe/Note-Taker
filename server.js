@@ -4,7 +4,6 @@ const path = require('path');
 const fs = require('fs');
 const PORT = process.env.PORT || 3001;
 const app = express();
-const notes = require('./db/db.json');
 const uuid = require('./helpers/uuid');
 const bodyParser = require('body-parser');
 
@@ -91,20 +90,6 @@ app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`);
 });
 
-//how can i rework this code to work for my assignment, is this even needed?
-const mainEL = $("main");
-fetch ('/api/users', {
-  method: 'GET'
-})
-.then( res => res.json())
-.then(userData => {
-  console.log(userData)
-  for (let i = 0; i < userdata.length; i++){
-    let h1El = $("<h1>");
-    h1El.text(`${userData[i].first_name} ${userData[i].last_name}`)
-    mainEL.append(h1El)
-  }
-});
 
 
     
