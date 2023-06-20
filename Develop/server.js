@@ -16,9 +16,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html')) //this takes you to the index html, takes you to the homepage
   });
 
-app.get('/api/notes', (req, res) => {
-  res.json(`${req.method} request recieved for notes`); //this sends the note information itself
-});  
 
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, './public/notes.html')) //this takes you to the actual notes page
