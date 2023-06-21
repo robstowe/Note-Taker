@@ -34,6 +34,29 @@ app.post('/api/notes', (req, res) => {
   });
 });
 
+app.get('/api/notes', (req, res) => {
+  fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    const notes = JSON.parse(data);
+    res.json(notes);
+  })
+});
+// got this from adam trying to get it to work 
+// class Post {
+//   async postNote(note) {
+//     const { title, text } = note;
+//     if (!title || !text ) {
+//       throw new Error ('Please enter a name and info for the note')
+//     }
+
+//     const postedNote = { title, text, id, uuid};
+//     const notes = await this.getNotes();
+//     notes.push(postedNote);
+//     await this.write(notes);
+//     return postedNote;
+//   }
+// };
+
+
 app.delete('/api/notes/:id', (req, res) => {
   const id = req.params.id;
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
