@@ -32,3 +32,6 @@ Testing was done via the console log
 Questions can be directed to robstowe94@gmail.com
 
 https://github.com/robstowe
+
+![Capture](https://github.com/robstowe/Note-Taker/assets/131800636/20155757-f370-4e99-94b2-a7cba67a39a3)
+
